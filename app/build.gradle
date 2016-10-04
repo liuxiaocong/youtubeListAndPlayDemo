@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "liuxiaocong.com.youtubelistandplay"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:support-v13:+'
+    compile 'com.android.support:design:24.1.0+'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.google.apis:google-api-services-youtube:v3-rev178-1.22.0'
+    compile 'com.android.support:recyclerview-v7:24.0.0+'
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    // 在 API < 14 上的机器支持 WebP 时，需要添加
+    compile 'com.facebook.fresco:animated-base-support:0.12.0'
+    // 支持 GIF 动图，需要添加
+    compile 'com.facebook.fresco:animated-gif:0.12.0'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+//
+//    compile 'com.google.android.gms:play-services:8.1.0'
+}
